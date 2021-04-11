@@ -1,13 +1,13 @@
 # The simple example project how to work with UIAutomator framework
 
 ## Test scenario:
-- Create application for authorization (Login and Register)
-- 
--  
+- Create application for authorization (Login and Register).
+- Create automation scripts for Login and Register.
+- Generate report for automation scripts. 
     
 ## Requirements:
 - Use any *object-oriented language* (Java or Kotlin).
-- Use any Http client for API requests.
+- Use UIAutomator.
 - Use automation patterns like *PageObject*, *data-driven* tests, etc.
 - Use any testing frameworks (JUnit or TestNG). 
 - provide code and clear instructions how to run it.
