@@ -16,6 +16,7 @@
 
 **Note**: Please send link to this repo when you are done.
 
+**Note**: Before launching the application, you need to create an account on the site https://www.back4app.com/ After it needs to add app_id and app_key
 
 You will need the following technologies available to try it out:
 * Git
