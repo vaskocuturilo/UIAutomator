@@ -17,9 +17,6 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-/**
- * The class Sign up activity.
- */
 public class SignUpActivity extends AppCompatActivity {
     private EditText emailView;
     private EditText passwordView;
@@ -113,12 +110,6 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Is empty boolean.
-     *
-     * @param text the text
-     * @return the boolean
-     */
     private boolean isEmpty(final EditText text) {
         if (text.getText().toString().trim().length() > 0) {
             return false;
@@ -127,13 +118,6 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Is matching boolean.
-     *
-     * @param text1 the text 1
-     * @param text2 the text 2
-     * @return the boolean
-     */
     private boolean isMatching(final EditText text1, final EditText text2) {
         if (text1.getText().toString().equals(text2.getText().toString())) {
             return true;
@@ -142,12 +126,6 @@ public class SignUpActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Alert display.
-     *
-     * @param title   the title
-     * @param message the message
-     */
     private void alertDisplay(final String title, final String message) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this)
                 .setTitle(title)
