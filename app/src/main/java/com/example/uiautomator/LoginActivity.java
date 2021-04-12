@@ -17,19 +17,10 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
-/**
- * The class Login activity.
- */
 public class LoginActivity extends AppCompatActivity {
 
-    /**
-     * The Username view.
-     */
-    private EditText usernameView;
+    private static EditText usernameView;
 
-    /**
-     * The Password view.
-     */
     private EditText passwordView;
 
     @Override
@@ -100,12 +91,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Is empty boolean.
-     *
-     * @param text the text
-     * @return the boolean
-     */
     private boolean isEmpty(final EditText text) {
         if (text.getText().toString().trim().length() > 0) {
             return false;
@@ -114,12 +99,6 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Alert display.
-     *
-     * @param title   the title
-     * @param message the message
-     */
     private void alertDisplay(final String title, final String message) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
                 .setTitle(title)
