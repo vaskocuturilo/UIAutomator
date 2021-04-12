@@ -29,9 +29,6 @@ You will need the following technologies available to try it out:
 
 ```./gradlew connectedAndroidTest```
 
-- [x] ability to run tests for different browsers/os by configuring;
-- [x] ability to run tests for different environments(urls) by configuring/by command-line.
-
 ```./gradlew test``` 
 
 ### Generate Allure report 
