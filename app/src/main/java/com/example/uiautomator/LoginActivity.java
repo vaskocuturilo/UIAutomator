@@ -52,14 +52,14 @@ public class LoginActivity extends AppCompatActivity {
                 final StringBuilder builder = new StringBuilder("Please, insert ");
                 if (isEmpty(usernameView)) {
                     validationError = true;
-                    builder.append("an username");
+                    builder.append("an Email");
                 }
                 if (isEmpty(passwordView)) {
                     if (validationError) {
                         builder.append(" and ");
                     }
                     validationError = true;
-                    builder.append("a password");
+                    builder.append("a Password");
                 }
                 builder.append(".");
 
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void done(final ParseUser parseUser, final ParseException parseEx) {
                         if (parseUser != null) {
                             dlg.dismiss();
-                            alertDisplay("Successful Login", "Welcome back " + usernameView.getText().toString() + "!");
+                            alertDisplay(R.string.alert_title, "Welcome back " + usernameView.getText().toString() + "!");
                         } else {
                             dlg.dismiss();
                             ParseUser.logOut();
@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void alertDisplay(final String title, final String message) {
+    private void alertDisplay(final int title, final String message) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this)
                 .setTitle(title)
                 .setMessage(message)
