@@ -18,6 +18,8 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 public class SignUpActivity extends AppCompatActivity {
+
+    private EditText nameView;
     private EditText emailView;
     private EditText passwordView;
     private EditText passwordAgainView;
@@ -37,7 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-
+        nameView = findViewById(R.id.et_name);
         emailView = findViewById(R.id.et_email);
         passwordView = findViewById(R.id.et_password);
         passwordAgainView = findViewById(R.id.et_repassword);
@@ -50,16 +52,21 @@ public class SignUpActivity extends AppCompatActivity {
                 boolean validationError = false;
 
                 final StringBuilder stringBuilder = new StringBuilder("Please, insert ");
+
+                if (isEmpty(nameView)) {
+                    validationError = true;
+                    stringBuilder.append("an Full Name ");
+                }
                 if (isEmpty(emailView)) {
                     validationError = true;
-                    stringBuilder.append("an username");
+                    stringBuilder.append("an Email ");
                 }
                 if (isEmpty(passwordView)) {
                     if (validationError) {
                         stringBuilder.append(" and ");
                     }
                     validationError = true;
-                    stringBuilder.append("a password");
+                    stringBuilder.append("a Password");
                 }
                 if (isEmpty(passwordAgainView)) {
                     if (validationError) {

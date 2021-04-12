@@ -29,19 +29,25 @@ public class LogoutActivity extends AppCompatActivity {
                 ParseUser.logOutInBackground(e -> {
                     progressDialog.dismiss();
                     if (e == null)
-                        alertDisplay("So, that you're going...", "Ok...Bye-bye then");
+                        alertDisplay(R.string.alert_title, R.string.logout);
                 });
             }
         });
     }
 
-    private void alertDisplay(final String title, final String message) {
+    private void alertDisplay(final int title, final int message) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(LogoutActivity.this)
                 .setTitle(title)
                 .setMessage(message)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(final DialogInterface dialog, final int which) {
+                        dialog.cancel();
+                    }
+                })
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                         Intent intent = new Intent(LogoutActivity.this, LoginActivity.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
