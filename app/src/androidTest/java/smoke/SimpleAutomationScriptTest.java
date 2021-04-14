@@ -1,7 +1,5 @@
 package smoke;
 
-import androidx.test.uiautomator.UiObjectNotFoundException;
-
 import org.junit.Test;
 
 import base.BaseTest;
@@ -12,7 +10,7 @@ public class SimpleAutomationScriptTest extends BaseTest {
      * This automation script check that all elements is present on the login page.
      */
     @Test
-    public void simpleAutomationScriptTest() throws UiObjectNotFoundException {
+    public void simpleAutomationScriptTest() {
         LoginScreen loginScreen = new LoginScreen();
         loginScreen.checkThatAllElementsIsAvailable();
     }
