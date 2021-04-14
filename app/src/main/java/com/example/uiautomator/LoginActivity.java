@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void done(final ParseUser parseUser, final ParseException parseEx) {
                         if (parseUser != null) {
                             dlg.dismiss();
-                            alertDisplay(R.string.alert_title, "Welcome back " + usernameView.getText().toString() + "!");
+                            alertDisplay(R.string.alert_title, "Welcome back " + usernameView.getText().toString() + " ");
                         } else {
                             dlg.dismiss();
                             ParseUser.logOut();

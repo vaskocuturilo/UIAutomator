@@ -8,6 +8,8 @@ import androidx.test.uiautomator.UiObject;
 import androidx.test.uiautomator.UiObjectNotFoundException;
 import androidx.test.uiautomator.UiSelector;
 
+import java.util.Date;
+
 public abstract class AbstractClass {
 
     private final static UiDevice UI_DEVICE = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
@@ -38,5 +40,11 @@ public abstract class AbstractClass {
             Log.d("MDC-tapCancelButton", "Cancel button is not clickable ");
             throw new RuntimeException("Cancel button is not clickable ", exception);
         }
+    }
+
+    public static String createEmailForNewUser() {
+        final String todayData = String.valueOf(new Date().getTime());
+
+        return "register_test" + todayData + "@qa.team";
     }
 }

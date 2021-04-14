@@ -8,7 +8,6 @@ import androidx.test.uiautomator.UiObject;
 import androidx.test.uiautomator.UiObjectNotFoundException;
 import androidx.test.uiautomator.UiSelector;
 
-
 public class LoginScreen extends AbstractClass {
 
     private final static UiDevice UI_DEVICE = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
@@ -33,7 +32,7 @@ public class LoginScreen extends AbstractClass {
     public LogoutScreen enterCredential() {
         setEmailField();
         setPasswordField();
-        setLoginButton();
+        tapLoginButton();
         tapOkButton();
         return new LogoutScreen();
     }
@@ -44,7 +43,7 @@ public class LoginScreen extends AbstractClass {
             EMAIL_FIELD.setText("test@test.ru");
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-setEmailField", "Element is not clickable ");
-            throw new RuntimeException("Element is not enabled ", exception);
+            throw new RuntimeException("Element is not clickable ", exception);
         }
     }
 
@@ -54,17 +53,17 @@ public class LoginScreen extends AbstractClass {
             PASSWORD_FIELD.setText("qwerty123456");
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-setPasswordField", "Element is not clickable ");
-            throw new RuntimeException("Element is not enabled ", exception);
+            throw new RuntimeException("Element is not clickable ", exception);
         }
     }
 
-    private void setLoginButton() {
+    private void tapLoginButton() {
         LOGIN_BUTTON.waitForExists(LAUNCH_TIME);
         try {
             LOGIN_BUTTON.clickAndWaitForNewWindow(LAUNCH_TIME);
         } catch (UiObjectNotFoundException exception) {
-            Log.d("MDC-setLoginButton", "Element is not clickable ");
-            throw new RuntimeException("Element is not enabled ", exception);
+            Log.d("MDC-tapLoginButton", "Element is not clickable ");
+            throw new RuntimeException("Element is not clickable ", exception);
         }
     }
 
@@ -94,7 +93,7 @@ public class LoginScreen extends AbstractClass {
             LOGIN_BUTTON.isClickable();
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-checkEmailFieldIsAvailable", "Element is not clickable ");
-            throw new RuntimeException("Element is not enabled ", exception);
+            throw new RuntimeException("Element is not clickable ", exception);
         }
     }
 
@@ -104,7 +103,7 @@ public class LoginScreen extends AbstractClass {
             LOGIN_BUTTON.isClickable();
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-checkPasswordFieldPageIsAvailable", "Element is not clickable ");
-            throw new RuntimeException("Element is not enabled ", exception);
+            throw new RuntimeException("Element is not clickable ", exception);
         }
     }
 }

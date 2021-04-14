@@ -103,7 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
                     public void done(final ParseException exception) {
                         if (exception == null) {
                             dlg.dismiss();
-                            alertDisplay("Successful Login", "Welcome " + emailView.getText().toString() + "!");
+                            alertDisplay("Successful Login", "Welcome " + emailView.getText().toString() + " ");
 
                         } else {
                             dlg.dismiss();
