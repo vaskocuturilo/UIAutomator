@@ -9,7 +9,7 @@ import androidx.test.uiautomator.UiObjectNotFoundException;
 import androidx.test.uiautomator.UiSelector;
 
 
-public class LoginScreen {
+public class LoginScreen extends AbstractClass {
 
     private final static UiDevice UI_DEVICE = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
 
@@ -28,6 +28,44 @@ public class LoginScreen {
         checkEmailFieldIsAvailable();
         checkPasswordFieldPageIsAvailable();
         checkLoginButtonIsAvailable();
+    }
+
+    public LogoutScreen enterCredential() {
+        setEmailField();
+        setPasswordField();
+        setLoginButton();
+        tapOkButton();
+        return new LogoutScreen();
+    }
+
+    private void setEmailField() {
+        EMAIL_FIELD.waitForExists(LAUNCH_TIME);
+        try {
+            EMAIL_FIELD.setText("test@test.ru");
+        } catch (UiObjectNotFoundException exception) {
+            Log.d("MDC-setEmailField", "Element is not clickable ");
+            throw new RuntimeException("Element is not enabled ", exception);
+        }
+    }
+
+    private void setPasswordField() {
+        PASSWORD_FIELD.waitForExists(LAUNCH_TIME);
+        try {
+            PASSWORD_FIELD.setText("qwerty123456");
+        } catch (UiObjectNotFoundException exception) {
+            Log.d("MDC-setPasswordField", "Element is not clickable ");
+            throw new RuntimeException("Element is not enabled ", exception);
+        }
+    }
+
+    private void setLoginButton() {
+        LOGIN_BUTTON.waitForExists(LAUNCH_TIME);
+        try {
+            LOGIN_BUTTON.clickAndWaitForNewWindow(LAUNCH_TIME);
+        } catch (UiObjectNotFoundException exception) {
+            Log.d("MDC-setLoginButton", "Element is not clickable ");
+            throw new RuntimeException("Element is not enabled ", exception);
+        }
     }
 
     private void checkJoinUsTitleIsAvailable() {
