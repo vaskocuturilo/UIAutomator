@@ -2,10 +2,10 @@ package smoke;
 
 import org.junit.Test;
 
-import base.BaseTest;
+import base.BaseClass;
 import screens.LoginScreen;
 
-public class SimpleLoginTest extends BaseTest {
+public class SimpleLoginTest extends BaseClass {
 
     /**
      * This is simple login automation script.

@@ -1,7 +1,6 @@
 package base;
 
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.SdkSuppress;
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.uiautomator.UiDevice;
 
@@ -11,9 +10,8 @@ import org.junit.runner.RunWith;
 
 import utils.StartMainActivityFromHomeScreen;
 
-@RunWith(AndroidJUnit4.class)
-@SdkSuppress(minSdkVersion = 18)
-public class BaseTest {
+@RunWith(AndroidJUnit4ClassRunner.class)
+public class BaseClass {
 
     public static UiDevice device;
 
