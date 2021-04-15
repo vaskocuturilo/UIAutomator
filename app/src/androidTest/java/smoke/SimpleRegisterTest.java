@@ -2,10 +2,10 @@ package smoke;
 
 import org.junit.Test;
 
-import base.BaseTest;
+import base.BaseClass;
 import screens.RegisterScreen;
 
-public class SimpleRegisterTest extends BaseTest {
+public class SimpleRegisterTest extends BaseClass {
     /**
      * This is simple register automation script. This automation script create a new user.
      */

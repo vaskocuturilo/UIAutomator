@@ -2,10 +2,10 @@ package smoke;
 
 import org.junit.Test;
 
-import base.BaseTest;
+import base.BaseClass;
 import screens.LoginScreen;
 
-public class SimpleAutomationScriptTest extends BaseTest {
+public class SimpleAutomationScriptTest extends BaseClass {
     /**
      * This automation script check that all elements is present on the login page.
      */
