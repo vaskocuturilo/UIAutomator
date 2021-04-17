@@ -8,6 +8,10 @@ import androidx.test.uiautomator.UiObject;
 import androidx.test.uiautomator.UiObjectNotFoundException;
 import androidx.test.uiautomator.UiSelector;
 
+import model.User;
+
+import static utils.JsonData.getJsonData;
+
 public class LoginScreen extends AbstractClass {
 
     private final static UiDevice UI_DEVICE = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
@@ -38,9 +42,10 @@ public class LoginScreen extends AbstractClass {
     }
 
     private void setEmailField() {
+        final User user = getJsonData("account", User.class, "account");
         EMAIL_FIELD.waitForExists(LAUNCH_TIME);
         try {
-            EMAIL_FIELD.setText("test@test.ru");
+            EMAIL_FIELD.setText(user.getEmail());
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-setEmailField", "Element is not clickable ");
             throw new RuntimeException("Element is not clickable ", exception);
@@ -48,9 +53,10 @@ public class LoginScreen extends AbstractClass {
     }
 
     private void setPasswordField() {
+        final User user = getJsonData("account", User.class, "account");
         PASSWORD_FIELD.waitForExists(LAUNCH_TIME);
         try {
-            PASSWORD_FIELD.setText("qwerty123456");
+            PASSWORD_FIELD.setText(user.getPassword());
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-setPasswordField", "Element is not clickable ");
             throw new RuntimeException("Element is not clickable ", exception);
