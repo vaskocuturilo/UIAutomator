@@ -26,7 +26,12 @@ You will need the following technologies available to try it out:
 * Web browser Chrome
 
 ### Ho w to run
- You need to write in console ### cd test-script
+
+ You need to write in console: 
+ 
+ ### cd test-script
+ 
+ and 
  
 ```./run-tests.sh ```
 
