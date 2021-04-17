@@ -26,10 +26,9 @@ You will need the following technologies available to try it out:
 * Web browser Chrome
 
 ### Ho w to run
-
-```./gradlew connectedAndroidTest```
-
-```./gradlew test``` 
+ You need to write in console ### cd test-script
+ 
+```./run-tests.sh ```
 
 ### Generate Allure report 
 

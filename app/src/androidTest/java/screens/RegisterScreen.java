@@ -32,9 +32,69 @@ public class RegisterScreen extends AbstractClass {
         setEmailField();
         setPasswordField();
         setRePasswordField();
-        tapLoginButton();
+        tapRegisterButton();
         tapOkButton();
+
         return new LogoutScreen();
+    }
+
+    public void checkThatAllElementsIsAvailable() {
+        tapSwipeRight();
+        checkFullNameFiledIsAvailable();
+        checkEmailFiledIsAvailable();
+        checkPasswordFiledIsAvailable();
+        checkRePasswordFiledIsAvailable();
+        checkRegisterButtonIsAvailable();
+    }
+
+    private void checkFullNameFiledIsAvailable() {
+        NAME_FIELD.waitForExists(LAUNCH_TIME);
+        try {
+            NAME_FIELD.isEnabled();
+        } catch (UiObjectNotFoundException exception) {
+            Log.d("MDC-checkFullNameFiledIsAvailable", "Element is not enabled ");
+            throw new RuntimeException("Element is not enabled ", exception);
+        }
+    }
+
+    private void checkEmailFiledIsAvailable() {
+        EMAIL_FIELD.waitForExists(LAUNCH_TIME);
+        try {
+            EMAIL_FIELD.isEnabled();
+        } catch (UiObjectNotFoundException exception) {
+            Log.d("MDC-checkEmailFiledIsAvailable", "Element is not enabled ");
+            throw new RuntimeException("Element is not enabled ", exception);
+        }
+    }
+
+    private void checkPasswordFiledIsAvailable() {
+        PASSWORD_FIELD.waitForExists(LAUNCH_TIME);
+        try {
+            PASSWORD_FIELD.isEnabled();
+        } catch (UiObjectNotFoundException exception) {
+            Log.d("MDC-checkPasswordFiledIsAvailable", "Element is not enabled ");
+            throw new RuntimeException("Element is not enabled ", exception);
+        }
+    }
+
+    private void checkRePasswordFiledIsAvailable() {
+        RE_PASSWORD_FIELD.waitForExists(LAUNCH_TIME);
+        try {
+            RE_PASSWORD_FIELD.isEnabled();
+        } catch (UiObjectNotFoundException exception) {
+            Log.d("MDC-checkRePasswordFiledIsAvailable", "Element is not enabled ");
+            throw new RuntimeException("Element is not enabled ", exception);
+        }
+    }
+
+    private void checkRegisterButtonIsAvailable() {
+        REGISTER_BUTTON.waitForExists(LAUNCH_TIME);
+        try {
+            REGISTER_BUTTON.isEnabled();
+        } catch (UiObjectNotFoundException exception) {
+            Log.d("MDC-checkRegisterButtonIsAvailable", "Element is not enabled ");
+            throw new RuntimeException("Element is not enabled ", exception);
+        }
     }
 
     private void tapSwipeRight() {
@@ -87,12 +147,12 @@ public class RegisterScreen extends AbstractClass {
         }
     }
 
-    private void tapLoginButton() {
+    private void tapRegisterButton() {
         REGISTER_BUTTON.waitForExists(LAUNCH_TIME);
         try {
             REGISTER_BUTTON.clickAndWaitForNewWindow(LAUNCH_TIME);
         } catch (UiObjectNotFoundException exception) {
-            Log.d("MDC-tapLoginButton", "Element is not clickable ");
+            Log.d("MDC-tapRegisterButton", "Element is not clickable ");
             throw new RuntimeException("Element is not clickable ", exception);
         }
     }
