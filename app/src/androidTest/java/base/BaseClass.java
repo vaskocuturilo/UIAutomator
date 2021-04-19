@@ -1,6 +1,5 @@
 package base;
 
-import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.uiautomator.UiDevice;
 
@@ -8,9 +7,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
+import io.qameta.allure.android.runners.AllureAndroidJUnit4;
 import utils.StartMainActivityFromHomeScreen;
 
-@RunWith(AndroidJUnit4ClassRunner.class)
+@RunWith(AllureAndroidJUnit4.class)
 public class BaseClass {
 
     public static UiDevice device;
