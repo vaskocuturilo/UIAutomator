@@ -22,7 +22,8 @@ You will need the following technologies available to try it out:
 * Git
 * Gradle 3+
 * JDK 8
-* Android Studio 
+* Android Studio
+* Allure 
 * Web browser Chrome
 
 ### Ho w to run
@@ -37,13 +38,15 @@ You will need the following technologies available to try it out:
 
 ### Generate Allure report 
 
-```gradle allure:report```
+```./generate-report.sh ```
 
 ### Open Allure report in browser
 
-```gradle allure:serve```
+```open index.html file from allure-report folder```
 
 
-![](https://a.radikal.ru/a39/2006/0b/a94fed92741c.png) 
+![](https://d.radikal.ru/d25/2104/1f/19918842b925.png) 
 
-![](https://b.radikal.ru/b31/2006/b7/a83835f0d1a6.png)
+![](https://d.radikal.ru/d15/2104/a0/400e63541d86.png)
+
+![](https://a.radikal.ru/a40/2104/3e/3824f7a4009e.png)
