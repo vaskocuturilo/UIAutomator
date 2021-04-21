@@ -1,4 +1,4 @@
-# The simple example project how to work with UIAutomator framework
+# The simple example project how to work with UIAutomator framework.
 
 ## Test scenario:
 - Create simple application for authorization (Login and Register).
