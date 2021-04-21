@@ -1,9 +1,11 @@
 # The simple example project how to work with UIAutomator framework
 
 ## Test scenario:
-- Create application for authorization (Login and Register).
-- Create automation scripts for Login and Register.
-- Generate report for automation scripts. 
+- Create simple application for authorization (Login and Register).
+- Create automation scripts (Smoke and Sanity).
+- Create functional for run automation scripts from command line.
+- Generate report for automation scripts.
+- Run automation scripts in Docker. 
     
 ## Requirements:
 - Use any *object-oriented language* (Java or Kotlin).
@@ -44,6 +46,7 @@ You will need the following technologies available to try it out:
 
 ```open index.html file from allure-report folder```
 
+![](https://c.radikal.ru/c12/2104/b0/213f8464e5fe.png) 
 
 ![](https://d.radikal.ru/d25/2104/1f/19918842b925.png) 
 
