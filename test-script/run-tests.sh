@@ -24,6 +24,7 @@ fi
 ANDROID_API_LEVEL=28
 ADB="${ANDROID_HOME}/platform-tools/adb"
 EMULATOR="${ANDROID_HOME}/emulator/emulator"
+REPORT="report/"
 ANDROID_BUILD_TOOLS_LEVEL=28.0.3
 
 function run_test() {
