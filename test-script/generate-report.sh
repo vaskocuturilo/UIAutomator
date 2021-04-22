@@ -20,6 +20,11 @@ else
 fi
 
 ADB="${ANDROID_HOME}/platform-tools/adb"
+REPORT="report/"
+
+function deleteEmulator() {
+  ${ANDROID_HOME}/tools/bin/avdmanager -v delete avd -n "test"
+}
 
 function generate_report() {
   cd ..
@@ -27,6 +32,15 @@ function generate_report() {
 
   allure generate allure-results --clean -o allure-report
 
+  cp -r ./allure-report/ ./$REPORT
+
+  rm -r allure-report
+
+  rm -r allure-results
+
+  ${ADB} -e emu kill
+
+  deleteEmulator
 }
 
 generate_report
