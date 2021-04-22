@@ -38,13 +38,15 @@ You will need the following technologies available to try it out:
  
 ```./run-tests.sh ```
 
-### Generate Allure report 
+  and 
+  
+### After it generated Allure report in automation mode. Will create report folder.    
 
-```./generate-report.sh ```
+you can 
 
 ### Open Allure report in browser
 
-```open index.html file from allure-report folder```
+```open index.html file from report folder```
 
 ![](https://d.radikal.ru/d25/2104/1f/19918842b925.png) 
 

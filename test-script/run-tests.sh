@@ -27,8 +27,15 @@ EMULATOR="${ANDROID_HOME}/emulator/emulator"
 REPORT="report/"
 ANDROID_BUILD_TOOLS_LEVEL=28.0.3
 
+function create_report_folder() {
+  if [ -d "$REPORT" ]; then rm -Rf $REPORT; fi
+  mkdir -p $REPORT
+}
+
 function run_test() {
   cd ..
+
+  create_report_folder
 
   ./gradlew clean
 
@@ -56,6 +63,29 @@ function wait_emulator_to_be_ready() {
   done
 }
 
+function generate_report() {
+  ${ADB} pull /sdcard/allure-results
+
+  allure generate allure-results --clean -o allure-report
+
+  cp -r ./allure-report/ ./$REPORT
+
+  rm -r allure-report
+
+  rm -r allure-results
+
+}
+
+function deleteEmulator() {
+  ${ANDROID_HOME}/tools/bin/avdmanager -v delete avd -n "test"
+}
+
 wait_emulator_to_be_ready
 
 run_test
+
+generate_report
+
+${ADB} -e emu kill
+
+deleteEmulator
