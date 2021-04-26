@@ -8,6 +8,8 @@ import androidx.test.uiautomator.UiObject;
 import androidx.test.uiautomator.UiObjectNotFoundException;
 import androidx.test.uiautomator.UiSelector;
 
+import org.junit.Assert;
+
 import model.User;
 
 import static utils.JsonData.getJsonData;
@@ -23,6 +25,8 @@ public class LoginScreen extends AbstractClass {
     private final static UiObject EMAIL_FIELD = UI_DEVICE.findObject(new UiSelector().resourceIdMatches(".*:id/et_email"));
 
     private final static UiObject PASSWORD_FIELD = UI_DEVICE.findObject(new UiSelector().resourceIdMatches(".*:id/et_password"));
+
+    private final static UiObject MESSAGE = UI_DEVICE.findObject(new UiSelector().resourceIdMatches(".*:id/message"));
 
     public final static long LAUNCH_TIME = 5000L;
 
@@ -41,6 +45,24 @@ public class LoginScreen extends AbstractClass {
         return new LogoutScreen();
     }
 
+    public LoginScreen enterCredential(final String email, final String password) {
+        setEmailField(email);
+        setPasswordField(password);
+        tapLoginButton();
+
+        return this;
+    }
+
+    public LoginScreen expectErrorMessage(final String message) {
+        try {
+            Assert.assertEquals(MESSAGE.getText(), message);
+        } catch (UiObjectNotFoundException e) {
+            Log.d("MDC-expectErrorMessage", "expectErrorMessage is not found");
+            throw new RuntimeException("expectErrorMessage is not found");
+        }
+        return this;
+    }
+
     private void setEmailField() {
         final User user = getJsonData("account", User.class, "account");
         EMAIL_FIELD.waitForExists(LAUNCH_TIME);
@@ -52,11 +74,31 @@ public class LoginScreen extends AbstractClass {
         }
     }
 
+    private void setEmailField(final String emailField) {
+        EMAIL_FIELD.waitForExists(LAUNCH_TIME);
+        try {
+            EMAIL_FIELD.setText(emailField);
+        } catch (UiObjectNotFoundException exception) {
+            Log.d("MDC-setEmailField", "Element is not clickable ");
+            throw new RuntimeException("Element is not clickable ", exception);
+        }
+    }
+
     private void setPasswordField() {
         final User user = getJsonData("account", User.class, "account");
         PASSWORD_FIELD.waitForExists(LAUNCH_TIME);
         try {
             PASSWORD_FIELD.setText(user.getPassword());
+        } catch (UiObjectNotFoundException exception) {
+            Log.d("MDC-setPasswordField", "Element is not clickable ");
+            throw new RuntimeException("Element is not clickable ", exception);
+        }
+    }
+
+    private void setPasswordField(final String passwordField) {
+        PASSWORD_FIELD.waitForExists(LAUNCH_TIME);
+        try {
+            PASSWORD_FIELD.setText(passwordField);
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-setPasswordField", "Element is not clickable ");
             throw new RuntimeException("Element is not clickable ", exception);

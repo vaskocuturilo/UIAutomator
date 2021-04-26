@@ -64,7 +64,8 @@ public class LoginActivity extends AppCompatActivity {
                 builder.append(".");
 
                 if (validationError) {
-                    Toast.makeText(LoginActivity.this, builder.toString(), Toast.LENGTH_LONG).show();
+                    alertView(R.string.alert_title, builder.toString());
+
                     return;
                 }
 
@@ -82,7 +83,8 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             dlg.dismiss();
                             ParseUser.logOut();
-                            Toast.makeText(LoginActivity.this, parseEx.getMessage(), Toast.LENGTH_LONG).show();
+                            //Toast.makeText(LoginActivity.this, parseEx.getMessage(), Toast.LENGTH_LONG).show();
+                            alertView(R.string.alert_title, parseEx.getMessage());
                         }
                     }
                 });
@@ -113,6 +115,19 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
         final AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
+    private void alertView(final int title, final String message) {
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle(title);
+        alertDialog.setMessage(message);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
         alertDialog.show();
     }
 }
