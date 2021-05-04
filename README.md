@@ -26,6 +26,7 @@ You will need the following technologies available to try it out:
 * JDK 8
 * Android Studio
 * Allure 
+* JSON
 * Web browser Chrome
 
 ### Ho w to run
