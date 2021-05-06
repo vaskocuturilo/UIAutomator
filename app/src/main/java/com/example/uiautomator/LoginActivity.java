@@ -7,15 +7,21 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.github.javafaker.Faker;
+import com.google.gson.Gson;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -27,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_login);
-
+        createJsonDataFile("account.json");
         final TextView swipeRight = findViewById(R.id.swipeRight);
         swipeRight.bringToFront();
         swipeRight.setOnClickListener(new View.OnClickListener() {
@@ -129,5 +135,27 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
         alertDialog.show();
+    }
+
+    private void createJsonDataFile(final String filename) {
+        OutputStreamWriter outputStreamWriter = null;
+        Faker faker = new Faker();
+        Register register = new Register(faker.name().fullName(), faker.internet().emailAddress(), faker.internet().password());
+        Gson gson = new Gson();
+        try {
+            FileOutputStream fw = new FileOutputStream("/data/data/" + this.getPackageName() + "/" + filename);
+            outputStreamWriter = new OutputStreamWriter(fw);
+            outputStreamWriter.write(gson.toJson(register));
+            outputStreamWriter.flush();
+            fw.getFD().sync();
+        } catch (IOException e) {
+            Log.d("MDC_CREATE_FILE", "The method createJsonDataFile is down");
+        } finally {
+            try {
+                outputStreamWriter.close();
+            } catch (IOException ex) {
+                Log.d("MDC_CREATE_FILE_CLOSE", "Can't close file.");
+            }
+        }
     }
 }

@@ -28,6 +28,8 @@ public class LoginScreen extends AbstractClass {
 
     private final static UiObject MESSAGE = UI_DEVICE.findObject(new UiSelector().resourceIdMatches(".*:id/message"));
 
+    private final static String ACCOUNT = "account";
+
     public final static long LAUNCH_TIME = 5000L;
 
     public void checkThatAllElementsIsAvailable() {
@@ -64,7 +66,7 @@ public class LoginScreen extends AbstractClass {
     }
 
     private void setEmailField() {
-        final User user = getJsonData("account", User.class, "account");
+        final User user = getJsonData(ACCOUNT, User.class, ACCOUNT);
         EMAIL_FIELD.waitForExists(LAUNCH_TIME);
         try {
             EMAIL_FIELD.setText(user.getEmail());
@@ -85,7 +87,7 @@ public class LoginScreen extends AbstractClass {
     }
 
     private void setPasswordField() {
-        final User user = getJsonData("account", User.class, "account");
+        final User user = getJsonData(ACCOUNT, User.class, ACCOUNT);
         PASSWORD_FIELD.waitForExists(LAUNCH_TIME);
         try {
             PASSWORD_FIELD.setText(user.getPassword());
