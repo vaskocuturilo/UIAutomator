@@ -13,6 +13,9 @@ android {
 
         testInstrumentationRunner "io.qameta.allure.android.runners.AllureAndroidJUnitRunner"
 
+        sourceSets {
+            androidTest.java.srcDirs += 'src/androidTest/java'
+        }
     }
 
     buildTypes {
@@ -44,6 +47,7 @@ ext {
     appcompat = "1.1.0"
     extJunit = "1.1.1"
     allure = "2.2.4"
+    javafaker = "1.0.2"
 }
 
 dependencies {
@@ -53,6 +57,8 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout"
     implementation "com.github.parse-community.Parse-SDK-Android:parse:$parseVersion"
     implementation "com.google.code.gson:gson:$gson"
+    implementation "com.github.javafaker:javafaker:$javafaker"
+
     testImplementation "junit:junit:$jUnit"
     androidTestImplementation "androidx.test.ext:junit:$extJunit"
     androidTestImplementation "androidx.test.uiautomator:uiautomator:$uiautomator"

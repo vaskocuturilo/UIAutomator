@@ -8,6 +8,10 @@ import androidx.test.uiautomator.UiObject;
 import androidx.test.uiautomator.UiObjectNotFoundException;
 import androidx.test.uiautomator.UiSelector;
 
+import com.example.uiautomator.Register;
+
+import static utils.JsonData.getJsonDataExternal;
+
 public class RegisterScreen extends AbstractClass {
 
     private final static UiDevice UI_DEVICE = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
@@ -108,9 +112,10 @@ public class RegisterScreen extends AbstractClass {
     }
 
     private void setFullNameField() {
+        Register register = getJsonDataExternal("account.json", Register.class);
         NAME_FIELD.waitForExists(LAUNCH_TIME);
         try {
-            NAME_FIELD.setText("Vasko Cuturilo");
+            NAME_FIELD.setText(register.getFullName());
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-setFullNameField", "Element is not clickable ");
             throw new RuntimeException("Element is not clickable ", exception);
@@ -118,9 +123,10 @@ public class RegisterScreen extends AbstractClass {
     }
 
     private void setEmailField() {
+        Register register = getJsonDataExternal("account.json", Register.class);
         EMAIL_FIELD.waitForExists(LAUNCH_TIME);
         try {
-            EMAIL_FIELD.setText(createEmailForNewUser());
+            EMAIL_FIELD.setText(register.getEmail());
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-setEmailField", "Element is not clickable ");
             throw new RuntimeException("Element is not clickable ", exception);
@@ -128,9 +134,10 @@ public class RegisterScreen extends AbstractClass {
     }
 
     private void setPasswordField() {
+        Register register = getJsonDataExternal("account.json", Register.class);
         PASSWORD_FIELD.waitForExists(LAUNCH_TIME);
         try {
-            PASSWORD_FIELD.setText("qwerty12345");
+            PASSWORD_FIELD.setText(register.getPassword());
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-setPasswordField", "Element is not clickable ");
             throw new RuntimeException("Element is not clickable ", exception);
@@ -138,9 +145,10 @@ public class RegisterScreen extends AbstractClass {
     }
 
     private void setRePasswordField() {
+        Register register = getJsonDataExternal("account.json", Register.class);
         RE_PASSWORD_FIELD.waitForExists(LAUNCH_TIME);
         try {
-            RE_PASSWORD_FIELD.setText("qwerty12345");
+            RE_PASSWORD_FIELD.setText(register.getPassword());
         } catch (UiObjectNotFoundException exception) {
             Log.d("MDC-setRePasswordField", "Element is not clickable ");
             throw new RuntimeException("Element is not clickable ", exception);

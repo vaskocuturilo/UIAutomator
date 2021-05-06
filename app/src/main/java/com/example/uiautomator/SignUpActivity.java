@@ -28,7 +28,6 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_sign_up);
-
         final TextView swipeLeft = (TextView) findViewById(R.id.swipeLeft);
         swipeLeft.bringToFront();
         swipeLeft.setOnClickListener(new View.OnClickListener() {

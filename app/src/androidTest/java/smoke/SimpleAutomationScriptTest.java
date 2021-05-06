@@ -6,7 +6,9 @@ import base.BaseClass;
 import screens.LoginScreen;
 import screens.RegisterScreen;
 
+
 public class SimpleAutomationScriptTest extends BaseClass {
+
     /**
      * This automation script check that all elements is present on the login and register pages.
      */
