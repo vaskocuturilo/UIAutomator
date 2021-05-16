@@ -1,15 +1,19 @@
-# The simple example project how to work with UIAutomator framework
+# The simple example project how to work with UIAutomator automation testing framework.
 
 ## Test scenario:
 - Create simple application for authorization (Login and Register).
+- Create profile page.
 - Create automation scripts (Smoke and Sanity).
+- Create automation scripts for profile page.
 - Create functional for run automation scripts from command line.
+- Create API automation scripts.
 - Generate report for automation scripts.
 - Run automation scripts in Docker. 
     
 ## Requirements:
 - Use any *object-oriented language* (Java or Kotlin).
 - Use UIAutomator.
+- Use any Http client for API requests.
 - Use automation patterns like *PageObject*, *data-driven* tests, etc.
 - Use any testing frameworks (JUnit or TestNG). 
 - provide code and clear instructions how to run it.
