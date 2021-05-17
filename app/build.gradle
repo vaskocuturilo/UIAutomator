@@ -58,6 +58,7 @@ dependencies {
     implementation "com.github.parse-community.Parse-SDK-Android:parse:$parseVersion"
     implementation "com.google.code.gson:gson:$gson"
     implementation "com.github.javafaker:javafaker:$javafaker"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     testImplementation "junit:junit:$jUnit"
     androidTestImplementation "androidx.test.ext:junit:$extJunit"
