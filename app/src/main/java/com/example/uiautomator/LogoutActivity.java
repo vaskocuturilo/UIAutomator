@@ -20,7 +20,6 @@ public class LogoutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_logout);
 
         final Button logoutButton = findViewById(R.id.logout_button);
-        final  Button profileButton = findViewById(R.id.btn_profile);
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,14 +31,6 @@ public class LogoutActivity extends AppCompatActivity {
                     if (e == null)
                         alertDisplay(R.string.alert_title, R.string.logout);
                 });
-            }
-        });
-
-        profileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Intent myIntent = new Intent(LogoutActivity.this, ProfileActivity.class);
-                startActivity(myIntent);
             }
         });
     }
