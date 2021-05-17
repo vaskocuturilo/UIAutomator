@@ -14,16 +14,29 @@
         android:fontFamily="@font/indigo_daisy"
         android:layout_marginStart="25dp"
         android:layout_marginBottom="10dp"/>
+    <Button
+        android:id="@+id/btn_profile"
+        android:layout_below="@id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_custom"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@android:color/white"
+        android:text="@string/profile"/>
 
     <Button
         android:id="@+id/logout_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/btn_custom"
         android:fontFamily="@font/roboto_regular"
+        android:layout_below="@id/btn_profile"
         android:text="@string/logout"
         android:textColor="@android:color/white" />
 </RelativeLayout>
