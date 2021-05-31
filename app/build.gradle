@@ -69,4 +69,8 @@ dependencies {
     androidTestImplementation "io.qameta.allure:allure-kotlin-commons:$allure"
     androidTestImplementation "io.qameta.allure:allure-kotlin-junit4:$allure"
     androidTestImplementation "io.qameta.allure:allure-kotlin-android:$allure"
+
+    //Retrofit
+    implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.9.0'
+    implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.9.0'
 }
