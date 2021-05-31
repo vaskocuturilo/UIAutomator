@@ -104,16 +104,14 @@
         android:textColor="@android:color/white" />
 
     <TextView
-        android:id="@+id/data"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_marginTop="620dp"
-        android:layout_marginLeft="125dp"
+        android:id="@+id/weather"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:focusable="true"
         android:fontFamily="sans-serif"
         android:text="Check existing users over"
         android:textColor="#d3d8e3"
-        android:textSize="12dp"
-        android:focusable="true" />
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/database"
@@ -123,7 +121,7 @@
         android:fontFamily="sans-serif-medium"
         android:clickable="true"
         android:text=" here."
-        android:layout_toEndOf="@+id/data"
+        android:layout_toEndOf="@+id/weather"
         android:textColor="#00d9d9"
         android:textSize="12dp"
         android:focusable="true" />

@@ -6,13 +6,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.uiautomator.model.WeatherResponse;
+import com.example.uiautomator.service.WeatherService;
 import com.parse.ParseUser;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class ProfileActivity extends AppCompatActivity {
+    private TextView weatherData;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -20,6 +30,9 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.profile_acitivity);
 
         Button logout = findViewById(R.id.logout_button);
+        Button saveButton = findViewById(R.id.btn_save);
+
+        weatherData = findViewById(R.id.weather);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,7 +45,15 @@ public class ProfileActivity extends AppCompatActivity {
                 });
             }
         });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getCurrentData();
+            }
+        });
     }
+
     private void alertDisplay(final int title, final int message) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this)
                 .setTitle(title)
@@ -54,5 +75,32 @@ public class ProfileActivity extends AppCompatActivity {
                 });
         final AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+
+    public void getCurrentData() {
+        Retrofit retrofit = new Retrofit.Builder().baseUrl(getString(R.string.api_url)).addConverterFactory(GsonConverterFactory.create())
+                .build();
+        WeatherService weatherService = retrofit.create(WeatherService.class);
+        Call<WeatherResponse> responseCall = weatherService.getCurrentWeatherData(getString(R.string.api_city), getString(R.string.api_key));
+        responseCall.enqueue(new Callback<WeatherResponse>() {
+            @Override
+            public void onResponse(Call<WeatherResponse> call, Response<WeatherResponse> response) {
+                if (response.code() == 200) {
+                    WeatherResponse weatherResponse = response.body();
+                    assert weatherResponse != null;
+
+                    String stringBuilder = "Weather is:" + weatherResponse.getWeather().get(0).getMain() +
+                            "Temperature is: " + weatherResponse.getWeather().get(0).getDescription();
+
+                    weatherData.setText(stringBuilder);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<WeatherResponse> call, Throwable t) {
+                weatherData.setText(t.getMessage());
+            }
+        });
+
     }
 }
