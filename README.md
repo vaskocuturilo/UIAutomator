@@ -3,6 +3,7 @@
 ## Test scenario:
 - Create simple application for authorization (Login and Register).
 - Create profile page.
+- Create weather functional for profile page.
 - Create automation scripts (Smoke and Sanity).
 - Create automation scripts for profile page.
 - Create functional for run automation scripts from command line.
@@ -13,9 +14,9 @@
 ## Requirements:
 - Use any *object-oriented language* (Java or Kotlin).
 - Use UIAutomator.
-- Use any Http client for API requests.
-- Use automation patterns like *PageObject*, *data-driven* tests, etc.
-- Use any testing frameworks (JUnit or TestNG). 
+- Use any Http client for API requests. (Retrofit 2)
+- Use automation patterns like *PageObject*, *ScreenObject*, *data-driven* tests, etc.
+- Use any testing frameworks (JUnit). 
 - provide code and clear instructions how to run it.
 
 **Note**: please put your code in public repository.
@@ -27,6 +28,7 @@
 You will need the following technologies available to try it out:
 * Git
 * Gradle 3+
+* Retrofit 2
 * JDK 8
 * Android Studio
 * Allure 
